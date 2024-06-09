@@ -503,7 +503,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starTag: Star
   player: {fileID: 552329074}
-  renderer: {fileID: 0}
+  renderer: {fileID: 552329075}
+  capsuleCollider2D: {fileID: 0}
+  loopCount: 60
+  flashInterval: 0.02
 --- !u!50 &552329080
 Rigidbody2D:
   serializedVersion: 4
