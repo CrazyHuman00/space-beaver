@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Common.Model;
 using UnityEngine;
+
+using InGame.Model;
 
 namespace InGame.Controller
 {
@@ -12,6 +15,7 @@ namespace InGame.Controller
         [SerializeField] private CapsuleCollider2D capsuleCollider2D;
         [SerializeField] private int loopCount;
         [SerializeField] private float flashInterval;
+        PlayerLifeModel playerLifeModel = new();
 
         private bool isHit = false;
 
@@ -29,6 +33,7 @@ namespace InGame.Controller
         {
             renderer = GetComponent<SpriteRenderer>();
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+            playerLifeModel = GameObject.Find("PlayerLife").GetComponent<PlayerLifeModel>();
         }
 
 
@@ -37,6 +42,7 @@ namespace InGame.Controller
             if (other.gameObject.CompareTag(starTag) && !isHit)
             {
                 state = STATE.DAMAGED;
+                playerLifeModel.playerLifeCount();
                 StartCoroutine(OnDamageEffect());
             }
         }
