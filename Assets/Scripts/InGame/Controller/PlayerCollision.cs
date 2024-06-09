@@ -23,7 +23,6 @@ namespace InGame.Controller
             INVINCIBLE
         }
 
-        //STATE型の変数
         private STATE state;
 
         private void Start()
