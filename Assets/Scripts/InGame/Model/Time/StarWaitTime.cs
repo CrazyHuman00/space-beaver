@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 待ち時間の名前空間
 /// <summary>
-namespace WaitTime
+namespace Common.Model
 {
     public class StarWaitTime
     {
