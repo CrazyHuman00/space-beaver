@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの動きを制御するクラス
+/// <summary>
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float playerSpeed;
-    private Vector2 screen_LeftBottom;
-    private Vector2 screen_RightTop;
+    private Vector2 screenLeftBottom; // modelに移動
+    private Vector2 screenRightTop; // modelに移動
     private Vector2 newPosition;
     
     void Start()
     {
-        screen_LeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero);
-        screen_RightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero);
+        screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
     // Update is called once per frame
@@ -38,8 +41,8 @@ public class PlayerController : MonoBehaviour
             transform.position -= playerSpeed * transform.right * Time.deltaTime;
         }
         
-        newPosition.x = Mathf.Clamp(transform.position.x, screen_LeftBottom.x, screen_RightTop.x);
-        newPosition.y = Mathf.Clamp(transform.position.y, screen_LeftBottom.y, screen_RightTop.y);
+        newPosition.x = Mathf.Clamp(transform.position.x, screenLeftBottom.x, screenRightTop.x);
+        newPosition.y = Mathf.Clamp(transform.position.y, screenLeftBottom.y, screenRightTop.y);
 
         transform.position = newPosition;
     }
