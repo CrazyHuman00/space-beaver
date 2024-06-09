@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using WaitTime;
+
+/// <summary>
+/// 左からの星の移動を制御するクラス
+/// <summary>
 public class LeftSideStarController : MonoBehaviour
 {
     [SerializeField] private float starSpeed;
@@ -10,10 +15,11 @@ public class LeftSideStarController : MonoBehaviour
     [SerializeField] private float endStarPositionX;
     [SerializeField] private float endStarPositionY;
     [SerializeField] private float spanDelay;
+    [SerializeField] private float startTime;
     private float starPositionY;
     private float screenLeftBottom; // modelに移動
-    private float screenRightTop; // modelに移動
     private bool isSpanning = false;
+    private bool isActive = false;
     private float starSpeedY;
 
 
@@ -24,11 +30,14 @@ public class LeftSideStarController : MonoBehaviour
         // 初期のy座標をランダムに設定
         starPositionY = Random.Range(screenLeftBottom, 0);
         transform.position = new Vector2(startStarPositionX, starPositionY);
+
+        // 開始時間を決める
+        StartCoroutine(ActivateAfterDelay(startTime));
     }
 
     void Update()
     {
-        if (!isSpanning)
+        if (isActive && !isSpanning)
         {
             transform.Translate(starSpeed * Time.deltaTime, starSpeedY * Time.deltaTime, 0, Space.World);
             transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
@@ -45,11 +54,17 @@ public class LeftSideStarController : MonoBehaviour
         isSpanning = true;
         yield return new WaitForSeconds(spanDelay);
 
-        starPositionY = Random.Range(screenLeftBottom, screenRightTop);
+        starPositionY = Random.Range(screenLeftBottom, 0);
         transform.position = new Vector2(startStarPositionX, starPositionY);
         starSpeed += 0.1f * Random.value;
         starSpeedY = Random.Range(0f, 3f);
 
         isSpanning = false;
+    }
+
+    private IEnumerator ActivateAfterDelay(float delay)
+    {
+        yield return StartCoroutine(StarWaitTime.WaitForSecondsCoroutine(delay));
+        isActive = true; 
     }
 }

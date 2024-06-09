@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow))

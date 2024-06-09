@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+using WaitTime;
+
 /// <summary>
-/// 星の移動を制御するクラス
+/// 中央からの星の移動を制御するクラス
 /// <summary>
 public class CenterStarController : MonoBehaviour
 {
@@ -11,10 +13,12 @@ public class CenterStarController : MonoBehaviour
     [SerializeField] private float startStarPositionY;
     [SerializeField] private float endStarPositionY;
     [SerializeField] private float spanDelay;
+    [SerializeField] private float startTime;
     private float starPositionX;
     private float screenLeftBottom; // modelに移動
     private float screenRightTop; // modelに移動
     private bool isSpanning = false;
+    private bool isActive = false;
 
     void Start()
     {
@@ -24,11 +28,14 @@ public class CenterStarController : MonoBehaviour
         // 初期のx座標をランダムに設定
         starPositionX = Random.Range(screenLeftBottom, screenRightTop);
         transform.position = new Vector2(starPositionX, startStarPositionY);
+
+        // 開始時間を決める
+        StartCoroutine(ActivateAfterDelay(startTime));
     }
 
     void Update()
     {
-        if (!isSpanning)
+        if (isActive && !isSpanning)
         {
             transform.Translate(0, starSpeed * Time.deltaTime, 0, Space.World);
             transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
@@ -52,4 +59,9 @@ public class CenterStarController : MonoBehaviour
         isSpanning = false;
     }
 
+    private IEnumerator ActivateAfterDelay(float delay)
+    {
+        yield return StartCoroutine(StarWaitTime.WaitForSecondsCoroutine(delay));
+        isActive = true; 
+    }
 }
