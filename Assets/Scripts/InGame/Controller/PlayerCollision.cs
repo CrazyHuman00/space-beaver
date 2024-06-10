@@ -15,7 +15,7 @@ namespace InGame.Controller
         [SerializeField] private CapsuleCollider2D capsuleCollider2D;
         [SerializeField] private int loopCount;
         [SerializeField] private float flashInterval;
-        PlayerLifeModel playerLifeModel = new();
+        private PlayerLifeModel playerLifeModel;
 
         private bool isHit = false;
 
@@ -34,6 +34,11 @@ namespace InGame.Controller
             renderer = GetComponent<SpriteRenderer>();
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
             playerLifeModel = GameObject.Find("PlayerLife").GetComponent<PlayerLifeModel>();
+            // playerLifeModel が正しく取得できたか確認する
+            if (playerLifeModel == null)
+            {
+                Debug.LogError("PlayerLifeModel コンポーネントが見つかりません。 'PlayerLife' ゲームオブジェクトにアタッチされていることを確認してください。");
+            }
         }
 
 
