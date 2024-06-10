@@ -8,7 +8,7 @@ namespace InGame.Model
     {
         void Update()
         {
-            Debug.Log ("経過時間(秒)" + Time.time);
+            // Debug.Log ("経過時間(秒)" + Time.time);
         }
     }
 
