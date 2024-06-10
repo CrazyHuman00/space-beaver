@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Common.Model;
+using InGame.Model;
 
 /// <summary>
 /// 左からの星の移動を制御するクラス
@@ -18,15 +19,20 @@ namespace InGame.Controller
         [SerializeField] private float endStarPositionY;
         [SerializeField] private float spanDelay;
         [SerializeField] private float startTime;
+        [SerializeField] private float stopStartTime = 10f;
         private float starPositionY;
         private float screenLeftBottom; // modelに移動
         private bool isSpanning = false;
         private bool isActive = false;
         private float starSpeedY;
+        private TimeManager timeManager;
 
 
         void Start()
         {
+            // 時間の取得
+            timeManager = GameObject.Find("Timer").GetComponent<TimeManager>();
+
             screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).y;
 
             // 初期のy座標をランダムに設定
@@ -60,6 +66,14 @@ namespace InGame.Controller
             transform.position = new Vector2(startStarPositionX, starPositionY);
             starSpeed += 0.1f * Random.value;
             starSpeedY = Random.Range(0f, 3f);
+
+            // 決められた時間に動かしたり、止めたりする
+            float elapsedTime = timeManager.GetElapsedTime();
+            
+            if (elapsedTime >= stopStartTime)
+            {
+                isActive = false;
+            }
 
             isSpanning = false;
         }

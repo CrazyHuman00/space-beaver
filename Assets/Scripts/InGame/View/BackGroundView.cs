@@ -13,11 +13,6 @@ namespace InGame.View
         [SerializeField] private float backGroundStartPosition;
         [SerializeField] private float backGroundEndPosition;
 
-        void Start()
-        {
-            
-        }
-
         void Update()
         {
             Move();
