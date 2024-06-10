@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Common.Model;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 using InGame.Model;
+using Sound;
 
 namespace InGame.Controller
 {
+    /// <summary>
+    /// Playerの当たり判定
+    /// <summary>
     public class PlayerCollision : MonoBehaviour
     {
         [SerializeField] private string starTag = "Star";
@@ -16,6 +20,7 @@ namespace InGame.Controller
         [SerializeField] private int loopCount;
         [SerializeField] private float flashInterval;
         private PlayerLifeModel playerLifeModel;
+        private DamagedSoundEffect soundEffect;
 
         private bool isHit = false;
 
@@ -33,12 +38,12 @@ namespace InGame.Controller
         {
             renderer = GetComponent<SpriteRenderer>();
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+
+            // ライフポイントの取得
             playerLifeModel = GameObject.Find("PlayerLife").GetComponent<PlayerLifeModel>();
-            // playerLifeModel が正しく取得できたか確認する
-            if (playerLifeModel == null)
-            {
-                Debug.LogError("PlayerLifeModel コンポーネントが見つかりません。 'PlayerLife' ゲームオブジェクトにアタッチされていることを確認してください。");
-            }
+
+            // SEの取得
+            soundEffect = GetComponent<DamagedSoundEffect>();
         }
 
 
@@ -47,10 +52,21 @@ namespace InGame.Controller
             if (other.gameObject.CompareTag(starTag) && !isHit)
             {
                 state = STATE.DAMAGED;
-                playerLifeModel.playerLifeCount();
+
+                // ライフが0なら自滅SEを流し、それ以上なら被弾SEを流す
+                if (playerLifeModel.playerLifePoint > 1)
+                {
+                    soundEffect.StarSoundTrigger();
+                    playerLifeModel.playerLifeCount();
+                } else {
+                    // GameOverシーンに遷移
+                    SceneManager.LoadScene("GameOver");
+                }
+
                 StartCoroutine(OnDamageEffect());
             }
         }
+
 
         private IEnumerator OnDamageEffect()
         {

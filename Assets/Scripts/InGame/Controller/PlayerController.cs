@@ -17,25 +17,16 @@ namespace InGame.Controller
         private Vector2 screenLeftBottom; // modelに移動
         private Vector2 screenRightTop; // modelに移動
         private Vector2 newPosition;
-        private PlayerLifeModel playerLifeModel;
-
+        
         void Start()
         {
             screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero);
             screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-            playerLifeModel = GameObject.Find("PlayerLife").GetComponent<PlayerLifeModel>();
         }
 
 
         void Update()
         {
-            // Sceneをゲームオーバーに移動
-            if (playerLifeModel.playerLifePoint.Equals(0))
-            {
-                // ここに何かのアニメーションを入れるかも
-                SceneManager.LoadScene("GameOver");
-            }
-
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 transform.position += playerSpeed * transform.up * Time.deltaTime;
