@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 using InGame.Model;
-using Sound;
+using Common.Sound;
 
 namespace InGame.Controller
 {
