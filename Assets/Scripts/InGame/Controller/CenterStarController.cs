@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-using Common.Model;
 using InGame.Model;
 
 /// <summary>
