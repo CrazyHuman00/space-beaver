@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: ItemDataBase
   m_EditorClassIdentifier: Assembly-CSharp:InGame.Model:itemDatabase
-  items: []
+  items:
+  - {fileID: 11400000, guid: 0f66cd5bbd1f0c7489c6afe49c3c379b, type: 2}
+  - {fileID: 11400000, guid: 5b16fdb4c54ef2a48b88ee179d4e18b1, type: 2}
+  - {fileID: 11400000, guid: f407d39bc009d594e8b45412d41c7fd1, type: 2}

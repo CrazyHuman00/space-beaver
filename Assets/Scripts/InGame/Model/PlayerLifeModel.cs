@@ -5,9 +5,9 @@ namespace InGame.Model
 {
     public class PlayerLifeModel : MonoBehaviour
     {
-        [SerializeField] private int playerLife = 3;
-        [SerializeField] public int playerLifePoint = 3;
-        [SerializeField] private GameObject[] playerLifeArray = new GameObject[3];
+        [SerializeField] private int playerLife;
+        [SerializeField] public int playerLifePoint;
+        [SerializeField] private GameObject[] playerLifeArray = new GameObject[4];
 
         public void playerLifeCount()
         {

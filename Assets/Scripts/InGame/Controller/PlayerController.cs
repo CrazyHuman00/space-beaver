@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
-
-using InGame.Model;
 
 /// <summary>
 /// プレイヤーの動きを制御するクラス
