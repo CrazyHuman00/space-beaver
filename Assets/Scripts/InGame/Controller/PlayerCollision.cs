@@ -4,6 +4,7 @@ using UnityEngine;
 
 using InGame.Model;
 using Common.Sound;
+using Common.View;
 
 namespace InGame.Controller
 {
@@ -12,13 +13,13 @@ namespace InGame.Controller
     /// <summary>
     public class PlayerCollision : MonoBehaviour
     {
-        [SerializeField] private string starTag = "Star";
         [SerializeField] private GameObject player;
         [SerializeField] private new SpriteRenderer renderer;
         [SerializeField] private CapsuleCollider2D capsuleCollider2D;
         [SerializeField] private int loopCount;
         [SerializeField] private float flashInterval;
         private PlayerLifeModel playerLifeModel;
+        private FadeSceneLoader fadeSceneLoader;
         private DamagedSoundEffect damagedSoundEffect;
         private ItemSoundEffect itemSoundEffect;
 
@@ -40,13 +41,14 @@ namespace InGame.Controller
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
             itemSoundEffect = GetComponent<ItemSoundEffect>();
             damagedSoundEffect = GetComponent<DamagedSoundEffect>();
+            fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
             playerLifeModel = GameObject.Find("PlayerLife").GetComponent<PlayerLifeModel>();
         }
 
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag(starTag) && !isHit)
+            if (other.gameObject.CompareTag("Star") && !isHit)
             {
                 state = STATE.DAMAGED;
 
@@ -57,7 +59,7 @@ namespace InGame.Controller
                 }
                 else
                 {
-                    SceneManager.LoadScene("GameOver");
+                    fadeSceneLoader.CallCoroutine("GameOver");
                 }
 
                 StartCoroutine(OnDamageEffect());
