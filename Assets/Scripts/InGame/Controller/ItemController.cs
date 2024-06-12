@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
+using Common.Sound;
 using InGame.Model;
 
 namespace InGame.Controller
@@ -9,6 +11,12 @@ namespace InGame.Controller
         [SerializeField] public float itemSpeed;
         public GameObject itemPrefab;
         private Item itemData;
+
+
+        public void Initialize(Item data)
+        {
+            itemData = data;
+        }
 
         void Update()
         {
@@ -20,16 +28,12 @@ namespace InGame.Controller
             }
         }
 
-        public void SetItemData(Item data)
-        {
-            itemData = data;
-        }
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
                 PlayerScoreManager playerScoreManager = other.gameObject.GetComponent<PlayerScoreManager>();
+
                 if (playerScoreManager != null && itemData != null)
                 {
                     playerScoreManager.AddScore(itemData.Point);

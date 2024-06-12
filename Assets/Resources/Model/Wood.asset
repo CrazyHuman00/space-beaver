@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ace326fda6c5634eaea60204d010abc, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  Score: 1000
+  Point: 1000
   Name: Wood
+  ItemSE: {fileID: 8300000, guid: 3f0b3531ab8c2a744b6d749ba17ff47c, type: 3}
   Prefab: {fileID: 311238403531347819, guid: 3c75b3022f20524499fcf453aa632f3a, type: 3}

@@ -30,7 +30,7 @@ namespace Factory
 
                 GameObject itemPrefab = Instantiate(randomItem.Prefab, new Vector2(Random.Range(screenLeftBottom, screenRightTop), -7), transform.rotation);
                 ItemController itemController = itemPrefab.AddComponent<ItemController>();
-                itemController.SetItemData(randomItem);
+                itemController.Initialize(randomItem);
 
                 itemController.itemSpeed = 4.0f;
                 itemController.itemPrefab = itemPrefab;
