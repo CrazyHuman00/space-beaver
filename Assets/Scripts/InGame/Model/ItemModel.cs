@@ -15,7 +15,7 @@ namespace InGame.Model
         [SerializeField] public int Point;
 
         /// <summary>
-        /// name
+        /// 名前
         /// </summary>
         [SerializeField] public string Name;
 
