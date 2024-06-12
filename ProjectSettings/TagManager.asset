@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Star
   - Item
+  - Undefined
+  - Koyadofu
+  - Sawagani
+  - Wood
   layers:
   - Default
   - TransparentFX
