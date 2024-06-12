@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -14,6 +13,7 @@ namespace InGame.Controller
     public class PlayerCollision : MonoBehaviour
     {
         [SerializeField] private string starTag = "Star";
+        [SerializeField] private string itemTag = "Item";
         [SerializeField] private GameObject player;
         [SerializeField] private new SpriteRenderer renderer;
         [SerializeField] private CapsuleCollider2D capsuleCollider2D;
@@ -53,13 +53,11 @@ namespace InGame.Controller
             {
                 state = STATE.DAMAGED;
 
-                // ライフが0なら自滅SEを流し、それ以上なら被弾SEを流す
                 if (playerLifeModel.playerLifePoint > 1)
                 {
                     soundEffect.StarSoundTrigger();
                     playerLifeModel.playerLifeCount();
                 } else {
-                    // GameOverシーンに遷移
                     SceneManager.LoadScene("GameOver");
                 }
 

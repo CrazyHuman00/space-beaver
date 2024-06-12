@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +12,7 @@ namespace InGame.Model
         /// <summary>
         /// 得点
         /// </summary>
-        [SerializeField] public int Score;
+        [SerializeField] public int Point;
 
         /// <summary>
         /// name

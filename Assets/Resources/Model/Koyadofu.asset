@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ace326fda6c5634eaea60204d010abc, type: 3}
   m_Name: Koyadofu
   m_EditorClassIdentifier: 
-  score: 5000
-  Id: 
+  Score: 5000
+  Name: Koyadofu
   Prefab: {fileID: 7366513195903664928, guid: eaebfcdf11098194caea33893f01ecae, type: 3}

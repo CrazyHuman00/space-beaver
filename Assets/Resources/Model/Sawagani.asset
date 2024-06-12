@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ace326fda6c5634eaea60204d010abc, type: 3}
   m_Name: Sawagani
   m_EditorClassIdentifier: 
-  score: 10000
-  Id: 
+  Score: 10000
+  Name: Sawagani
   Prefab: {fileID: 6359066920968650629, guid: c7dbb1b75eb392e4d91960358eb48165, type: 3}
