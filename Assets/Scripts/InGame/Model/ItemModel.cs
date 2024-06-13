@@ -30,11 +30,4 @@ namespace InGame.Model
         }
 
     }
-
-
-    [CreateAssetMenu(fileName = "ItemDataBase", menuName = "CreateItemDataBase")]
-    public class itemDatabase : ScriptableObject
-    {
-        public List<Item> items = new List<Item>();
-    }
 }
