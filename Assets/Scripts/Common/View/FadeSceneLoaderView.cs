@@ -9,7 +9,7 @@ namespace Common.View
     public class FadeSceneLoader : MonoBehaviour
     {
         public Image fadePanel;             // フェード用のUIパネル（Image）
-        public float fadeDuration = 1.0f;   // フェードの完了にかかる時間
+        public float fadeDuration = 2.0f;   // フェードの完了にかかる時間
 
         public void CallCoroutine(string sceneName)
         {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Common.Sound
 {
@@ -9,13 +10,13 @@ namespace Common.Sound
     public class AudioManager : MonoBehaviour
     {
         [SerializeField] private string sceneName;
-        public static AudioManager Instance;
+        public static AudioManager instance;
 
         private void Awake()
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = this;
+                instance = this;
                 DontDestroyOnLoad(gameObject);
 
                 // シーンが変更されたときにOnSceneLoadedメソッドを呼び出すように設定
@@ -34,11 +35,6 @@ namespace Common.Sound
             {
                 Destroy(gameObject);
             }
-        }
-
-        private void StopBGM()
-        {
-            // ここにBGMを停止するコードを追加する
         }
 
         private void OnDestroy()

@@ -4,21 +4,25 @@ using UnityEngine;
 
 using Common.View;
 
-public class NewBehaviourScript : MonoBehaviour
+namespace Explain
 {
-    [SerializeField] private string sceneName;
-    private FadeSceneLoader fadeSceneLoader;
-
-    void Start()
+    public class Loader : MonoBehaviour
     {
-        fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
-    }
+        [SerializeField] private string sceneName;
+        private FadeSceneLoader fadeSceneLoader;
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
+        void Start()
         {
-            fadeSceneLoader.CallCoroutine(sceneName);
+            fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
+        }
+
+        void Update()
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                
+                fadeSceneLoader.CallCoroutine(sceneName);
+            }
         }
     }
 }
