@@ -57,5 +57,8 @@
         "Temp/": true
     },
     "dotnet.defaultSolution": "space-beaver.sln",
-    "svn.ignoreMissingSvnWarning": true
+    "svn.ignoreMissingSvnWarning": true,
+    "cSpell.words": [
+        "unityroom"
+    ]
 }

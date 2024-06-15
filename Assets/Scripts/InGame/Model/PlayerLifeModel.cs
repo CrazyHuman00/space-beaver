@@ -7,7 +7,7 @@ namespace InGame.Model
     {
         [SerializeField] private int playerLife;
         [SerializeField] public int playerLifePoint;
-        [SerializeField] private GameObject[] playerLifeArray = new GameObject[4];
+        [SerializeField] private GameObject[] playerLifeArray = new GameObject[3];
 
         public void playerLifeCount()
         {

@@ -74,7 +74,7 @@ namespace InGame.Controller
 
         private IEnumerator ActivateAfterDelay(float delay)
         {
-            yield return StartCoroutine(StarWaitTime.WaitForSecondsCoroutine(delay));
+            yield return new WaitForSeconds(delay);
             isActive = true;
         }
     }
