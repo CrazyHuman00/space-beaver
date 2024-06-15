@@ -1,29 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Common.Model;
+
 
 namespace Common.View
 {
-    public class GameClearSceneLoad : MonoBehaviour
+    public class SceneSwitcher : MonoBehaviour
     {
         [SerializeField] private string sceneName;
         private FadeSceneLoader fadeSceneLoader;
-        private AudioSource BGMSource;
 
         void Start()
         {
             fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
-            BGMSource = GameObject.Find("BGM").GetComponent<AudioSource>();
         }
 
-
-        void Update()
+        public void OnClick()
         {
-            if (BGMSource != null && !BGMSource.isPlaying)
+            fadeSceneLoader.CallCoroutine(sceneName);
+        }
+
+        public void Retry()
+        {
+            if (PlayerScoreManager.instance != null)
             {
-                fadeSceneLoader.fadeDuration = 3.0f;
-                fadeSceneLoader.CallCoroutine(sceneName);
+                PlayerScoreManager.instance.ResetScoreManager();
             }
+            fadeSceneLoader.CallCoroutine(sceneName);
         }
     }
 }

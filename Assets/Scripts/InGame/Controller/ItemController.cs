@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Audio;
 
-using Common.Sound;
+using Common.Model;
 using InGame.Model;
 
 namespace InGame.Controller
@@ -32,7 +31,7 @@ namespace InGame.Controller
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                PlayerScoreManager playerScoreManager = other.gameObject.GetComponent<PlayerScoreManager>();
+                PlayerScoreManager playerScoreManager = GameObject.Find("ScoreManager").GetComponent<PlayerScoreManager>();
 
                 if (playerScoreManager != null && itemData != null)
                 {
