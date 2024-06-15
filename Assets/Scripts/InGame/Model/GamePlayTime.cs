@@ -5,8 +5,6 @@ namespace InGame.Model
 {
     public class TimeManager : MonoBehaviour
     {
-        // Debug用
-        [SerializeField] TextMeshProUGUI debugText;
         private int a;
         public static TimeManager Instance { get; private set; }
         private float elapsedTime;
@@ -34,8 +32,6 @@ namespace InGame.Model
         void Update()
         {
             elapsedTime += Time.deltaTime;
-            a = (int)elapsedTime;
-            debugText.text = a.ToString();
         }
     }
 

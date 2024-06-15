@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc91e45ed2220743a7edeee9fc8ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 3
   rotSpeed: 0
   startStarPositionY: -7
   endStarPositionY: 7
@@ -1212,7 +1212,7 @@ GameObject:
   - component: {fileID: 570005863}
   - component: {fileID: 570005862}
   m_Layer: 0
-  m_Name: BGM
+  m_Name: InGameBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1228,7 +1228,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -9056803459111161941, guid: f03d75e780bebec489998ae5b7495601, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 46fc439c0ce8972459ea887e1461d358, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 20c0219fcc3ed9143a5227b686da302c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.17
   m_Pitch: 1
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc91e45ed2220743a7edeee9fc8ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 2.2
   rotSpeed: 0
   startStarPositionY: -7
   endStarPositionY: 7
@@ -1726,7 +1726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc91e45ed2220743a7edeee9fc8ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 3
   rotSpeed: 5
   startStarPositionY: -7
   endStarPositionY: 7
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a75ca836f56eed429c198034660e690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreLabel: {fileID: 1935017243}
+  score: 0
 --- !u!4 &827998476
 Transform:
   m_ObjectHideFlags: 0
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc91e45ed2220743a7edeee9fc8ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 10
   rotSpeed: 0
   startStarPositionY: -7
   endStarPositionY: 7
@@ -2973,7 +2973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e142143478d3041b73a44c7d0eef22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 3
   rotSpeed: 0
   startStarPositionY: 9
   endStarPositionY: -9
@@ -3180,7 +3180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5eaa504a2f0d94aadf098bb9d677ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 3
   rotSpeed: 8
   startStarPositionX: 4
   endStarPositionX: -4
@@ -3423,7 +3423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc91e45ed2220743a7edeee9fc8ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 6
   rotSpeed: 0
   startStarPositionY: -7
   endStarPositionY: 7
@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc91e45ed2220743a7edeee9fc8ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 5
   rotSpeed: 0
   startStarPositionY: -7
   endStarPositionY: 7
@@ -4079,7 +4079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d193267496404f6469e8475066b7257d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starSpeed: 0
+  starSpeed: 4
   rotSpeed: 8
   startStarPositionX: -4
   endStarPositionX: 4
