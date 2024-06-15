@@ -13,7 +13,7 @@ namespace Common.View
         void Start()
         {
             fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
-            BGMSource = GameObject.Find("BGM").GetComponent<AudioSource>();
+            BGMSource = GameObject.Find("InGameBGM").GetComponent<AudioSource>();
         }
 
 
