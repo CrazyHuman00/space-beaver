@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using unityroom.Api;
 
 namespace Common.Model
 {
@@ -52,6 +52,7 @@ namespace Common.Model
 
         public void ResetScoreManager()
         {
+            UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.Always);
             instance = null;
             Destroy(gameObject);
         }
@@ -60,7 +61,7 @@ namespace Common.Model
         {
             if (scoreLabel != null)
             {
-                scoreLabel.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString("D4");
+                scoreLabel.GetComponent<TextMeshProUGUI>().text =  score.ToString();
             }
         }
     }

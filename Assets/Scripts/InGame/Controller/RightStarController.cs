@@ -60,7 +60,7 @@ namespace InGame.Controller
         private IEnumerator SpanStar()
         {
             isSpanning = true;
-            yield return StartCoroutine(StarWaitTime.WaitForSecondsCoroutine(spanDelay));
+            yield return new WaitForSeconds(spanDelay);
 
             starPositionY = Random.Range(screenLeftBottom, 0);
             transform.position = new Vector2(startStarPositionX, starPositionY);
@@ -80,7 +80,7 @@ namespace InGame.Controller
 
         private IEnumerator ActivateAfterDelay(float delay)
         {
-            yield return StartCoroutine(StarWaitTime.WaitForSecondsCoroutine(delay));
+            yield return new WaitForSeconds(delay);
             isActive = true;
         }
     }
