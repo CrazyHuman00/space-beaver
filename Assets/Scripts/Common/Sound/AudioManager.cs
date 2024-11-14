@@ -6,11 +6,11 @@ namespace Common.Sound
 {
     /// <summary>
     /// オーディオボリュームを保持するクラス
-    /// <summary>
+    /// </summary>
     public class AudioManager : MonoBehaviour
     {
         [SerializeField] private string sceneName;
-        public static AudioManager instance;
+        private static AudioManager instance;
 
         private void Awake()
         {
@@ -19,7 +19,6 @@ namespace Common.Sound
                 instance = this;
                 DontDestroyOnLoad(gameObject);
 
-                // シーンが変更されたときにOnSceneLoadedメソッドを呼び出すように設定
                 SceneManager.sceneLoaded += OnSceneLoaded;
             }
             else

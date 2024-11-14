@@ -4,13 +4,13 @@ namespace Common.Sound
 {
     /// <summary>
     /// ダメージ系のサウンドエフェクトの操作
-    /// <summary>
+    /// </summary>
     public class DamagedSoundEffect : MonoBehaviour
     {
         [SerializeField] private AudioClip starSoundEffect;
         private AudioSource audioSource;
 
-        void Start()
+        private void Start()
         {
             audioSource = GetComponent<AudioSource>();
         }

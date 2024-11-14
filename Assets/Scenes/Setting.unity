@@ -2034,7 +2034,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 543521824}
         m_TargetAssemblyTypeName: Audio, Assembly-CSharp
-        m_MethodName: SetSE
+        m_MethodName: SetSe
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

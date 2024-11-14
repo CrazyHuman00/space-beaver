@@ -9,5 +9,4 @@ namespace InGame.Model
     {
         public List<Item> items = new List<Item>();
     }
-
 }

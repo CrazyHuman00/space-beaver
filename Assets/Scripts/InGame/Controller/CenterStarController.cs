@@ -3,11 +3,11 @@ using UnityEngine;
 
 using InGame.Model;
 
-/// <summary>
-/// 中央からの星の移動を制御するクラス
-/// <summary>
 namespace InGame.Controller
 {
+    /// <summary>
+    /// 中央からの星の移動を制御する。
+    /// </summary>
     public class CenterStarController : MonoBehaviour
     {
         [SerializeField] private float starSpeed;
@@ -28,19 +28,17 @@ namespace InGame.Controller
 
         private TimeManager timeManager;
 
-        void Start()
+        private void Start()
         {
             Initialize();
             StartCoroutine(ActivateAfterDelay(startTime));
         }
 
-        void Update()
+        private void Update()
         {
-            if (isActive && !isSpanning)
-            {
-                MoveStar();
-                CheckStarPosition();
-            }
+            if (!isActive || isSpanning) return;
+            MoveStar();
+            CheckStarPosition();
         }
 
         private void Initialize()
@@ -52,6 +50,7 @@ namespace InGame.Controller
 
         private void CalculateScreenBounds()
         {
+            if (Camera.main == null) return;
             screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).x + 5.0f;
             screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x - 5.0f;
         }
@@ -102,15 +101,13 @@ namespace InGame.Controller
 
         private IEnumerator HandleStarStopAndRestart()
         {
-            float elapsedTime = timeManager.GetElapsedTime();
+            var elapsedTime = timeManager.GetElapsedTime();
 
-            if (elapsedTime >= stopStartTime && !isStopped)
-            {
-                isActive = false;
-                isStopped = true;
-                yield return new WaitForSeconds(restartDelay); // 再開までの遅延
-                isActive = true;
-            }
+            if (!(elapsedTime >= stopStartTime) || isStopped) yield break;
+            isActive = false;
+            isStopped = true;
+            yield return new WaitForSeconds(restartDelay); // 再開までの遅延
+            isActive = true;
         }
 
         private IEnumerator ActivateAfterDelay(float delay)

@@ -9,8 +9,8 @@ using Common.View;
 namespace InGame.Controller
 {
     /// <summary>
-    /// Playerの当たり判定
-    /// <summary>
+    /// プレイヤーの当たり判定
+    /// </summary>
     public class PlayerCollision : MonoBehaviour
     {
         [SerializeField] private GameObject player;
@@ -26,14 +26,14 @@ namespace InGame.Controller
         private bool isHit = false;
 
         //プレイヤーの状態用列挙型（ノーマル、ダメージ、無敵の3種類）
-        enum STATE
+        private enum State
         {
-            NORMAL,
-            DAMAGED,
-            INVINCIBLE
+            Normal,
+            Damaged,
+            Invincible
         }
 
-        private STATE state;
+        [SerializeField] private State state;
 
         private void Start()
         {
@@ -50,12 +50,12 @@ namespace InGame.Controller
         {
             if (other.gameObject.CompareTag("Star") && !isHit)
             {
-                state = STATE.DAMAGED;
+                state = State.Damaged;
 
                 if (playerLifeModel.playerLifePoint > 1)
                 {
                     damagedSoundEffect.StarSoundTrigger();
-                    playerLifeModel.playerLifeCount();
+                    playerLifeModel.PlayerLifeCount();
                 }
                 else
                 {
@@ -94,21 +94,19 @@ namespace InGame.Controller
             renderer.color = Color.black;
 
             //点滅ループ開始
-            for (int i = 0; i < loopCount; i++)
+            for (var i = 0; i < loopCount; i++)
             {
                 yield return new WaitForSeconds(flashInterval);
                 renderer.enabled = false;
                 yield return new WaitForSeconds(flashInterval);
                 renderer.enabled = true;
 
-                if (i > 20)
-                {
-                    state = STATE.INVINCIBLE;
-                    renderer.color = Color.green;
-                }
+                if (i <= 20) continue;
+                state = State.Invincible;
+                renderer.color = Color.green;
             }
 
-            state = STATE.NORMAL;
+            state = State.Normal;
             capsuleCollider2D.enabled = true;
             renderer.color = Color.white;
             isHit = false;

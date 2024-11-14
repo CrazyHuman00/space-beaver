@@ -8,22 +8,22 @@ namespace Common.View
     {
         [SerializeField] private string sceneName;
         private FadeSceneLoader fadeSceneLoader;
-        private AudioSource BGMSource;
+        private AudioSource bgmSource;
+        private bool isbgmSourceNull;
 
-        void Start()
+        private void Start()
         {
+            isbgmSourceNull = bgmSource == null;
             fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
-            BGMSource = GameObject.Find("InGameBGM").GetComponent<AudioSource>();
+            bgmSource = GameObject.Find("InGameBGM").GetComponent<AudioSource>();
         }
 
 
-        void Update()
+        private void Update()
         {
-            if (BGMSource != null && !BGMSource.isPlaying)
-            {
-                fadeSceneLoader.fadeDuration = 3.0f;
-                fadeSceneLoader.CallCoroutine(sceneName);
-            }
+            if (isbgmSourceNull || bgmSource.isPlaying) return;
+            fadeSceneLoader.fadeDuration = 3.0f;
+            fadeSceneLoader.CallCoroutine(sceneName);
         }
     }
 }

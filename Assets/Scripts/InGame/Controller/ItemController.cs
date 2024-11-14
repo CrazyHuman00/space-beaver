@@ -5,6 +5,9 @@ using InGame.Model;
 
 namespace InGame.Controller
 {
+    /// <summary>
+    /// アイテムの動き。
+    /// </summary>
     public class ItemController : MonoBehaviour
     {
         [SerializeField] public float itemSpeed;
@@ -17,7 +20,7 @@ namespace InGame.Controller
             itemData = data;
         }
 
-        void Update()
+        private void Update()
         {
             transform.Translate(0, itemSpeed * Time.deltaTime, 0, Space.World);
 
@@ -29,16 +32,12 @@ namespace InGame.Controller
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                PlayerScoreManager playerScoreManager = GameObject.Find("ScoreManager").GetComponent<PlayerScoreManager>();
+            if (!other.gameObject.CompareTag("Player")) return;
+            var playerScoreManager = GameObject.Find("ScoreManager").GetComponent<PlayerScoreManager>();
 
-                if (playerScoreManager != null && itemData != null)
-                {
-                    playerScoreManager.AddScore(itemData.Point);
-                    Destroy(gameObject);
-                }
-            }
+            if (playerScoreManager == null || itemData == null) return;
+            playerScoreManager.AddScore(itemData.point);
+            Destroy(gameObject);
         }
 
     }

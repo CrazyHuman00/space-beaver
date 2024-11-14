@@ -1,11 +1,11 @@
 using UnityEngine;
 using InGame.Model;
 
-/// <summary>
-/// プレイヤーの動きを制御するクラス
-/// <summary>
 namespace InGame.Controller
 {
+    /// <summary>
+    /// プレイヤーの動きを制御するクラス
+    /// </summary>
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float playerSpeed;
@@ -17,50 +17,58 @@ namespace InGame.Controller
         private TimeManager timeManager;
         private bool stopFlag = true;
 
-        void Start()
+        private void Start()
         {
-            screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero);
-            screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+            if (Camera.main != null)
+            {
+                screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero);
+                screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+            }
+
             timeManager = GameObject.Find("Timer").GetComponent<TimeManager>();
         }
 
 
-        void Update()
+        private void Update()
         {
             StopMove();
-            
-            if (stopFlag)
+
+            if (!stopFlag) return;
+            if (Input.GetKey(KeyCode.UpArrow))
             {
-                if (Input.GetKey(KeyCode.UpArrow))
-                {
-                    transform.position += playerSpeed * transform.up * Time.deltaTime;
-                }
-
-                if (Input.GetKey(KeyCode.DownArrow))
-                {
-                    transform.position -= playerSpeed * transform.up * Time.deltaTime;
-                }
-
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    transform.position += playerSpeed * transform.right * Time.deltaTime;
-                }
-
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    transform.position -= playerSpeed * transform.right * Time.deltaTime;
-                }
-
-                newPosition.x = Mathf.Clamp(transform.position.x, screenLeftBottom.x + inside, screenRightTop.x - inside);
-                newPosition.y = Mathf.Clamp(transform.position.y, screenLeftBottom.y + inside, screenRightTop.y - inside);
-
-                transform.position = newPosition;
+                var transform1 = transform;
+                transform1.position += transform1.up * (playerSpeed * Time.deltaTime);
             }
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                var transform1 = transform;
+                transform1.position -= transform1.up * (playerSpeed * Time.deltaTime);
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                var transform1 = transform;
+                transform1.position += transform1.right * (playerSpeed * Time.deltaTime);
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                var transform1 = transform;
+                transform1.position -= transform1.right * (playerSpeed * Time.deltaTime);
+            }
+
+            var position = transform.position;
+            newPosition.x = Mathf.Clamp(position.x, screenLeftBottom.x + inside, screenRightTop.x - inside);
+            newPosition.y = Mathf.Clamp(position.y, screenLeftBottom.y + inside, screenRightTop.y - inside);
+
+            position = newPosition;
+            transform.position = position;
         }
 
         private void StopMove()
         {
-            float elapsedTime = timeManager.GetElapsedTime();
+            var elapsedTime = timeManager.GetElapsedTime();
             if (elapsedTime > stopTime)
             {
                 stopFlag = false;

@@ -1,14 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using InGame.Model;
 
-/// <summary>
-/// 左からの星の移動を制御するクラス
-/// <summary>
 namespace InGame.Controller
 {
+    /// <summary>
+    /// 左からの星の移動を制御する。
+    /// </summary>
     public class LeftSideStarController : MonoBehaviour
     {
         [SerializeField] private float starSpeed;
@@ -27,12 +26,12 @@ namespace InGame.Controller
         private TimeManager timeManager;
 
 
-        void Start()
+        private void Start()
         {
             // 時間の取得
             timeManager = GameObject.Find("Timer").GetComponent<TimeManager>();
 
-            screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).y;
+            if (Camera.main != null) screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).y;
 
             // 初期のy座標をランダムに設定
             starPositionY = Random.Range(screenLeftBottom, 0);
@@ -42,17 +41,15 @@ namespace InGame.Controller
             StartCoroutine(ActivateAfterDelay(startTime));
         }
 
-        void Update()
+        private void Update()
         {
-            if (isActive && !isSpanning)
-            {
-                transform.Translate(starSpeed * Time.deltaTime, starSpeedY * Time.deltaTime, 0, Space.World);
-                transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
+            if (!isActive || isSpanning) return;
+            transform.Translate(starSpeed * Time.deltaTime, starSpeedY * Time.deltaTime, 0, Space.World);
+            transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
 
-                if (transform.position.x > endStarPositionX || transform.position.y > endStarPositionY)
-                {
-                    StartCoroutine(SpanStar());
-                }
+            if (transform.position.x > endStarPositionX || transform.position.y > endStarPositionY)
+            {
+                StartCoroutine(SpanStar());
             }
         }
 
@@ -67,7 +64,7 @@ namespace InGame.Controller
             starSpeedY = Random.Range(0f, 3f);
 
             // 決められた時間に動かしたり、止めたりする
-            float elapsedTime = timeManager.GetElapsedTime();
+            var elapsedTime = timeManager.GetElapsedTime();
             
             if (elapsedTime >= stopStartTime)
             {

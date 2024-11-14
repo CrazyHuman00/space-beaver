@@ -1,9 +1,9 @@
-using UnityEngine;
+using System.Collections;
 using InGame.Controller;
 using InGame.Model;
-using System.Collections;
+using UnityEngine;
 
-namespace Factory
+namespace InGame.Factory
 {
     public class ItemGenerator : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Factory
         private float screenLeftBottom;
         private float screenRightTop;
 
-        void Start()
+        private void Start()
         {
             CalculateScreenBounds();
             StartCoroutine(GenerateItemsWithRandomInterval());
@@ -20,54 +20,57 @@ namespace Factory
 
         private void CalculateScreenBounds()
         {
+            if (Camera.main == null) return;
             screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).x + 5.0f;
             screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x - 5.0f;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator GenerateItemsWithRandomInterval()
         {
             while (true)
             {
-                float randomInterval = Random.Range(1.0f, 2.0f);
+                var randomInterval = Random.Range(1.0f, 2.0f);
                 yield return new WaitForSeconds(randomInterval);
                 GenerateItem();
             }
+            // ReSharper disable once IteratorNeverReturns
         }
 
         private void GenerateItem()
         {
             if (itemDatabase == null || itemDatabase.items.Count == 0) return;
 
-            int randomIndex = GenerateRandomValue();
-            Item randomItem = itemDatabase.items[randomIndex];
+            var randomIndex = GenerateRandomValue();
+            var randomItem = itemDatabase.items[randomIndex];
 
-            GameObject itemPrefab = Instantiate(randomItem.Prefab, GetRandomSpawnPosition(), Quaternion.identity);
+            var itemPrefab = Instantiate(randomItem.prefab, GetRandomSpawnPosition(), Quaternion.identity);
             InitializeItemController(itemPrefab, randomItem);
         }
 
         private Vector2 GetRandomSpawnPosition()
         {
-            float randomX = Random.Range(screenLeftBottom, screenRightTop);
+            var randomX = Random.Range(screenLeftBottom, screenRightTop);
             return new Vector2(randomX, -7f);
         }
 
-        private void InitializeItemController(GameObject itemPrefab, Item randomItem)
+        private static void InitializeItemController(GameObject itemPrefab, Item randomItem)
         {
-            ItemController itemController = itemPrefab.AddComponent<ItemController>();
+            var itemController = itemPrefab.AddComponent<ItemController>();
             itemController.Initialize(randomItem);
             itemController.itemSpeed = 6.0f;
             itemController.itemPrefab = itemPrefab;
         }
 
-        private int GenerateRandomValue()
+        private static int GenerateRandomValue()
         {
-            int randomValue = Random.Range(0, 10); // 上限値を10に修正
-            if (randomValue < 1)
-                return 0;
-            else if (randomValue < 3)
-                return 1;
-            else
-                return 2;
+            var randomValue = Random.Range(0, 10); // 上限値を10に修正
+            return randomValue switch
+            {
+                < 1 => 0,
+                < 3 => 1,
+                _ => 2
+            };
         }
     }
 }

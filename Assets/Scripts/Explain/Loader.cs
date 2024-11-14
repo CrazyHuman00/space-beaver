@@ -11,12 +11,12 @@ namespace Explain
         [SerializeField] private string sceneName;
         private FadeSceneLoader fadeSceneLoader;
 
-        void Start()
+        private void Start()
         {
             fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKey(KeyCode.Space))
             {

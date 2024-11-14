@@ -3,26 +3,25 @@ using UnityEngine;
 namespace InGame.View
 {
     /// <summary>
-    /// 背景の動きを制御するプログラム
-    ///
+    /// 背景の動きを制御する。
+    /// </summary>
     public class BackGroundView : MonoBehaviour
     {
         [SerializeField] private float scrollSpeed;
         [SerializeField] private float backGroundStartPosition;
         [SerializeField] private float backGroundEndPosition;
 
-        void Update()
+        private void Update()
         {
             Move();
         }
 
-        void Move()
+        private void Move()
         {
-            transform.Translate(Vector2.up * scrollSpeed * Time.deltaTime);
-            if (transform.position.y > backGroundEndPosition)
-            {
-                transform.position = new Vector2(transform.position.x, backGroundStartPosition);
-            }
+            transform.Translate(Vector2.up * (scrollSpeed * Time.deltaTime));
+            if (!(transform.position.y > backGroundEndPosition)) return;
+            var transform1 = transform;
+            transform1.position = new Vector2(transform1.position.x, backGroundStartPosition);
         }
     }
 

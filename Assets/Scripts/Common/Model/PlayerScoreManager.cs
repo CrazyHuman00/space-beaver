@@ -6,12 +6,15 @@ namespace Common.Model
 {
     public class PlayerScoreManager : MonoBehaviour
     {
-        static public PlayerScoreManager instance { get; private set; }
+        public static PlayerScoreManager instance { get; private set; }
         private GameObject scoreLabel;
         public int score;
+        private bool isScoreLabelNull;
+        private GameObject o;
 
-        void Awake()
+        private void Awake()
         {
+            o = GameObject.Find("Score");
             if (instance == null)
             {
                 instance = this;
@@ -23,19 +26,20 @@ namespace Common.Model
             }
         }
 
-        void Start()
+        private void Start()
         {
+            UpdateScoreLabel();
+            isScoreLabelNull = scoreLabel == null;
             this.scoreLabel = GameObject.Find("Score");
             UpdateScoreLabel();
         }
 
-        void Update()
+        private void Update()
         {
-            if (scoreLabel == null)
+            if (isScoreLabelNull)
             {
-                scoreLabel = GameObject.Find("Score");
+                scoreLabel = o;
             }
-            UpdateScoreLabel();
         }
 
         public void AddScore(int points)

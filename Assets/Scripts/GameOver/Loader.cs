@@ -12,7 +12,7 @@ namespace GameOver
         [SerializeField] private float delayBeforeSwitch = 3.0f;
         private FadeSceneLoader fadeSceneLoader;
 
-        void Start()
+        private void Start()
         {
             fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
             StartCoroutine(SwitchSceneAfterDelay());

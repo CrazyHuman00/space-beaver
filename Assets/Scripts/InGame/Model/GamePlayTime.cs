@@ -1,15 +1,15 @@
 using UnityEngine;
-using TMPro;
 
 namespace InGame.Model
 {
+    /// <summary>
+    /// 時間管理。
+    /// </summary>
     public class TimeManager : MonoBehaviour
     {
-        private int a;
-        public static TimeManager Instance { get; private set; }
+        public static TimeManager Instance { get; } = new();
         private float elapsedTime;
         private bool isRunning = false;
-        
 
         private void Start()
         {
@@ -19,17 +19,10 @@ namespace InGame.Model
 
         public float GetElapsedTime()
         {
-            if (isRunning)
-            {
-                return elapsedTime;
-            }
-            else
-            {
-                return 0f;
-            }
+            return isRunning ? elapsedTime : 0f;
         }
 
-        void Update()
+        private void Update()
         {
             elapsedTime += Time.deltaTime;
         }

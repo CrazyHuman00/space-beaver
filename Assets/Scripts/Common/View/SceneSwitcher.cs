@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Common.Model;
 
 
@@ -12,7 +9,7 @@ namespace Common.View
         [SerializeField] private string sceneName;
         private FadeSceneLoader fadeSceneLoader;
 
-        void Start()
+        private void Start()
         {
             fadeSceneLoader = GameObject.Find("Canvas").GetComponent<FadeSceneLoader>();
         }

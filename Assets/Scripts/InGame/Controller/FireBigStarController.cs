@@ -6,6 +6,9 @@ using InGame.Model;
 
 namespace InGame.Controller
 {
+    /// <summary>
+    /// 炎の星の動き。
+    /// </summary>
     public class FireBigStarController : MonoBehaviour
     {
         [SerializeField] private float starSpeed;
@@ -26,9 +29,12 @@ namespace InGame.Controller
         {
             // 時間の取得
             timeManager = GameObject.Find("Timer").GetComponent<TimeManager>();
-            
-            screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).x + 5.0f;
-            screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x - 5.0f;
+
+            if (Camera.main != null)
+            {
+                screenLeftBottom = Camera.main.ScreenToWorldPoint(Vector2.zero).x + 5.0f;
+                screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x - 5.0f;
+            }
 
             // 初期のx座標をランダムに設定
             starPositionX = Random.Range(screenLeftBottom, screenRightTop);
@@ -38,17 +44,15 @@ namespace InGame.Controller
             StartCoroutine(ActivateAfterDelay(startTime));
         }
 
-        void Update()
+        private void Update()
         {
-            if (isActive && !isSpanning)
-            {
-                transform.Translate(0, -starSpeed * Time.deltaTime, 0, Space.World);
-                transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
+            if (!isActive || isSpanning) return;
+            transform.Translate(0, -starSpeed * Time.deltaTime, 0, Space.World);
+            transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
 
-                if (transform.position.y < endStarPositionY)
-                {
-                    StartCoroutine(SpanStar());
-                }
+            if (transform.position.y < endStarPositionY)
+            {
+                StartCoroutine(SpanStar());
             }
         }
 
@@ -62,7 +66,7 @@ namespace InGame.Controller
             starSpeed += 0.1f * Random.value;
 
             // 決められた時間に動かしたり、止めたりする
-            float elapsedTime = timeManager.GetElapsedTime();
+            var elapsedTime = timeManager.GetElapsedTime();
             
             if (elapsedTime >= stopStartTime)
             {
