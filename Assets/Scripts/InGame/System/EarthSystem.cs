@@ -1,12 +1,12 @@
+using InGame.Timer;
 using UnityEngine;
-using InGame.Model;
 
-namespace InGame.Controller
+namespace InGame.System
 {
     /// <summary>
     /// 地球を動かす。
     /// </summary>
-    public class EarthController : MonoBehaviour
+    public class EarthSystem : MonoBehaviour
     {
         [SerializeField] private float startTime;
         [SerializeField] private float earthSpeed;

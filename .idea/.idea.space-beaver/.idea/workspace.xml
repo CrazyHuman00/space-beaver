@@ -5,32 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6bf78fd-c9ab-45ee-8d07-101e9242dd19" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Setting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Setting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Model/PlayerScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Model/PlayerScoreManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/AudioSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/AudioSetting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/DamagedSoundEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/DamagedSoundEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/ItemSoundEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Sound/ItemSoundEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/View/FadeSceneLoaderView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/View/FadeSceneLoaderView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/View/GameClearSceneLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/View/GameClearSceneLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/View/SceneSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/View/SceneSwitcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/Star.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/Star.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Timer.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.space-beaver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.space-beaver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Setting.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Setting.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Title.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Title.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Explain/Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Explain/Loader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameOver/Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameOver/Loader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/CenterStarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/CenterStarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/EarthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/EarthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/FireBigStarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/FireBigStarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/ItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/ItemController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/LeftSideStarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/LeftSideStarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerCollision.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/RightStarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/RightStarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Factory/ItemGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Factory/ItemGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/GamePlayTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/GamePlayTime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/ItemDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/ItemDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/ItemModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/ItemModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/PlayerLifeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/PlayerLifeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/View/BackGroundView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/View/BackGroundView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/CenterStarController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/CenterStarController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/EarthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/EarthSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/EarthController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/EarthSystem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/FireBigStarController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/FireBigStarController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/ItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/ItemController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/ItemController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/ItemController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/LeftSideStarController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/LeftSideStarController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/PlayerCollision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerCollision.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/PlayerCollision.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/PlayerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/RightStarController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Controller/RightStarController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Factory.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Factory/ItemGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/ItemGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Factory/ItemGenerator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/System/ItemGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/GamePlayTime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Timer/GamePlayTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/GamePlayTime.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Timer/GamePlayTimer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +44,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMPro_UGUI_Private.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Editor/RectMask2D/RectTransformPosition.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -115,7 +122,10 @@
       <option name="presentableId" value="Default" />
       <updated>1731588676237</updated>
       <workItem from="1731588677673" duration="4554000" />
-      <workItem from="1731594466871" duration="976000" />
+      <workItem from="1731594466871" duration="1089000" />
+      <workItem from="1731595575324" duration="42000" />
+      <workItem from="1732357397923" duration="5000" />
+      <workItem from="1732357581829" duration="6092000" />
     </task>
     <servers />
   </component>

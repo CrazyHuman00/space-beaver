@@ -1,5 +1,5 @@
 using UnityEngine;
-using InGame.Model;
+using InGame.Timer;
 
 namespace InGame.Controller
 {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace InGame.Model
+namespace InGame.Timer
 {
     /// <summary>
     /// 時間管理。
