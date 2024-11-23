@@ -1,12 +1,10 @@
 using System.Collections;
-using UnityEngine.SceneManagement;
+using Common.View;
+using InGame.Model;
+using InGame.Sound;
 using UnityEngine;
 
-using InGame.Model;
-using Common.Sound;
-using Common.View;
-
-namespace InGame.Controller
+namespace InGame.System
 {
     /// <summary>
     /// プレイヤーの当たり判定

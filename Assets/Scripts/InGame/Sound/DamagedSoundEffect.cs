@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Common.Sound
+namespace InGame.Sound
 {
     /// <summary>
     /// ダメージ系のサウンドエフェクトの操作

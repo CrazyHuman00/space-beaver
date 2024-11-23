@@ -1,6 +1,6 @@
 namespace InGame.System
 {
-    public class normalGreenStarSystem
+    public class NormalGreenStarSystem
     {
         
     }

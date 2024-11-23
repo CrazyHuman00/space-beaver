@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
-namespace Common.Sound
+namespace InGame.Sound
 {
     /// <summary>
     /// アイテム系のサウンドエフェクトの操作。
